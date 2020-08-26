@@ -1,0 +1,38 @@
+plugins {
+    id 'java-library'
+}
+
+group 'cloud.autotests'
+version '1.0'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+defaultTasks 'help'
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.6.2"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.6.2"
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+
+tasks.withType(Test) {
+    systemProperties = System.properties
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task SimpleTests(type: Test) {
+    useJUnitPlatform {
+    }
+}
