@@ -34,5 +34,13 @@ test {
 
 task SimpleTests(type: Test) {
     useJUnitPlatform {
+        includeTags("Simple")
+        excludeTags("Bad")
+    }
+}
+
+task ParamTests(type: Test) {
+    useJUnitPlatform {
+        includeTags("withParams")
     }
 }
